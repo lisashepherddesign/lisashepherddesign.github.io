@@ -12,6 +12,9 @@
   <nav class="navbar">
     <div class="navbar-container">
       <span class="navbar-logo">Lisa Shepherd</span>
+      <button class="navbar-toggle" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
       <ul class="navbar-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="ui-gallery.html">UI Work</a></li>
@@ -32,5 +35,12 @@
     <h2><span class="bold">MULTIDISCIPLINARY</span> DESIGNER & ILLUSTRATOR</h2>
     <p>UX/UI • Illustration • AI Tools • Adobe CC • Code</p>
   </div>
+  <script>
+    const toggle = document.querySelector('.navbar-toggle');
+    const links = document.querySelector('.navbar-links');
+    toggle.addEventListener('click', () => {
+      links.classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
