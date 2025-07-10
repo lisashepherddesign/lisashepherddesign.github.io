@@ -60,6 +60,21 @@ body {
   vertical-align: middle;
 }
 
+/* Responsive Figma prototype embeds */
+.figma-prototype {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.figma-prototype iframe {
+  width: 90vw;
+  max-width: 400px;
+  height: 220px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 /* Hide hamburger by default */
 .navbar-toggle {
   display: none;
@@ -282,5 +297,10 @@ p {
   .client-gallery-img {
     width: 70vw;
     max-width: 220px;
+  }
+  .figma-prototype iframe {
+    width: 800px;
+    height: 450px;
+    max-width: 100%;
   }
 }
