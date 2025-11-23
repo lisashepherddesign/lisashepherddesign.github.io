@@ -4,8 +4,8 @@ html,body { height: 100%; }
 body {
   margin: 0;
   font-family: 'Manrope', sans-serif;
-  background: #ffffff;
-  color: #333;
+  background: #000;
+  color: #fff;
   text-align: center;
   min-height: 100vh;
   padding-top: 64px; /* room for fixed navbar */
@@ -38,6 +38,16 @@ body {
   font-weight: 700;
   font-size: 1.1rem;
   letter-spacing: 1px;
+  text-decoration: none !important;
+  color: inherit !important;
+  cursor: pointer;
+}
+
+.navbar-logo:hover,
+.navbar-logo:focus {
+  color: inherit !important;
+  text-decoration: none !important;
+  outline: none;
 }
 
 .navbar-links {
@@ -236,4 +246,96 @@ html { scroll-behavior: smooth; }
 
 .hidden-prototypes {
   display: none !important;
+}
+
+/* Remove dark frames/backgrounds around UI images and their containers */
+.ui-gallery, .ui-gallery .container,
+.grid.ui-gallery-row, .ui-gallery-row,
+.ui-gallery .ui-mockup, .ui-gallery img,
+.client-gallery, .client-gallery img,
+.Illustration-gallery, .Illustration-img {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+/* Ensure images themselves display without extra styling */
+.ui-gallery img,
+.client-gallery img,
+.Illustration-img,
+.ui-mockup img {
+  display: block;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* If a wrapper element is adding a background via pseudo-elements */
+.ui-gallery .ui-mockup::before,
+.ui-gallery .ui-mockup::after,
+.client-gallery::before,
+.client-gallery::after {
+  background: transparent !important;
+  content: none !important;
+}
+
+/* Make all pages/sections dark except the first (hero) */
+body {
+  background: #000;
+  color: #fff;
+}
+
+/* default section styling: dark background with light text */
+section {
+  background: #000;
+  color: #fff;
+}
+
+/* keep the first page (hero) light */
+#hero, .hero {
+  background: #fff;    /* or use an image as before */
+  color: #111;         /* dark text for hero */
+}
+
+/* ensure in-page anchors still respect hero override */
+#hero * { color: inherit; }
+
+/* images and galleries keep transparent background so files show correctly */
+.section img,
+.ui-gallery img,
+.Illustration-img,
+.client-gallery img {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* links contrast on dark sections */
+section a {
+  color: #9dd3ff;
+  text-decoration: underline;
+}
+#hero a { color: inherit; text-decoration: none; }
+
+#ux,
+section#ux,
+#clients,
+section#clients {
+  background: #ffffff !important;
+  color: #111111 !important;
+}
+
+/* ensure links and small UI inside those sections are readable */
+#ux a,
+#clients a {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+/* keep images transparent so GIFs/PNGs show correctly */
+#ux img,
+#clients img {
+  background: transparent !important;
+  box-shadow: none !important;
 }

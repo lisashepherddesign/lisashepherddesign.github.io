@@ -11,13 +11,13 @@
 <body>
   <nav class="navbar">
     <div class="navbar-container">
-      <span class="navbar-logo">Lisa Shepherd</span>
+      <a class="navbar-logo" href="#hero">Lisa Shepherd</a>
       <button class="navbar-toggle" aria-label="Toggle navigation">
         <i class="fas fa-bars"></i>
       </button>
       <ul class="navbar-links">
         <li><a href="#hero">Home</a></li>
-        <li><a href="ux/index.html">UX Work</a></li>
+        <li><a href="#ux">UX Work</a></li>
         <li><a href="#ui">UI Work</a></li>
         <li><a href="#illustration">Illustration</a></li>
         <li><a href="#clients">Clients</a></li>
@@ -50,7 +50,15 @@
       </div>
     </section>
 
-    <!-- prototypes section removed and replaced by standalone UX page (ux/index.html) -->
+    <!-- in-page UX Work section (shows portfolio-page.gif) -->
+    <section id="ux" class="section ux-work">
+      <div class="container">
+        <h2>UX Work</h2>
+        <div class="center-ux" style="display:flex;align-items:center;justify-content:center;padding:24px 0;">
+          <img src="assets/virtual-companion/portfolio-page.gif" alt="UX portfolio preview" style="max-width:100%;max-height:80vh;display:block;">
+        </div>
+      </div>
+    </section>
 
     <section id="illustration" class="section Illustration">
       <div class="container">
@@ -83,51 +91,6 @@
   </main>
 
   <script src="nav.js"></script>
-  <!-- dropdown toggle + same-page anchor scroll with nav offset -->
-  <script>
-    (function(){
-      const btn = document.querySelector('.nav-dropdown .dropbtn');
-      const menu = document.querySelector('.nav-dropdown .dropdown-menu');
-      if (!btn || !menu) return;
-
-      btn.addEventListener('click', (e) => {
-        const open = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!open));
-        menu.style.display = open ? 'none' : 'block';
-      });
-
-      // handle clicks inside dropdown
-      menu.addEventListener('click', (e) => {
-        const a = e.target.closest('a');
-        if (!a) return;
-        const href = a.getAttribute('href');
-        // in-page anchor
-        if (href && href.startsWith('#')) {
-          e.preventDefault();
-          const id = href.slice(1);
-          const target = document.getElementById(id);
-          if (target) {
-            const navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 64;
-            const top = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 12;
-            window.scrollTo({ top, behavior: 'smooth' });
-          }
-        }
-        // external (site page) link — allow default navigation
-        menu.style.display = 'none';
-        btn.setAttribute('aria-expanded','false');
-      });
-
-      // close on outside click / ESC
-      document.addEventListener('click', (e) => {
-        if (!btn.contains(e.target) && !menu.contains(e.target)) {
-          menu.style.display = 'none';
-          btn.setAttribute('aria-expanded','false');
-        }
-      });
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') { menu.style.display = 'none'; btn.setAttribute('aria-expanded','false'); }
-      });
-    })();
-  </script>
+  <!-- nav dropdown removed; using simple in-page anchors -->
 </body>
 </html>
